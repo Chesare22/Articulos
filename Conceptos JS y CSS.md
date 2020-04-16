@@ -1,24 +1,23 @@
-# Conceptos básicos de JavaScript y CSS que me hubiera gustado aprender en la escuela
-No me malentiendan, aprendí mucho en la escuela. Desarrollo de Aplicaciones Web fue una materia de la que muchos compañeros se enamoraron, y sin ella no sabría jugar con el DOM, qué es Ajax, fundamentos de php, etc.
-Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos, y tener buenos compañeros de trabajo ayuda dramáticamente.
+# Conceptos de JavaScript y CSS que me hubiera gustado aprender en la escuela
+No me malentiendan, aprendí mucho en la facultad. Desarrollo de Aplicaciones Web fue una materia de la que muchos compañeros se enamoraron, y sin ella no sabría jugar con el DOM, qué es Ajax, fundamentos de php, etc.
 
+Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos, y tener buenos compañeros de trabajo ayuda dramáticamente.
 Todavía estoy muy lejos de ser un experto, pero al menos puedo hablar de lo siguiente:
 
 ### ¿Flechas?
-La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada tenía sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_, y desde ese entonces no he parado de usar tan conveniente notación.
+La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada cobraba sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_, y desde ese entonces no he parado de usar tan conveniente notación.
 #### Sintaxis
 #### Más que un sustituto de `function`
 <img src="assets/images/This-is-complicated.jpeg" width="300">
 
 ### No es necesario sumar cadenas
-Bueno, este apartado es muy corto. Dudaba si designarle todo un subtítulo a las `Template literals` (o template strings), pero no podía dejar de lado a uno de mis trucos favoritos.
-Es un concepto simple introducido en ES6+. Reemplazando las comillas por acentos graves `` ` `` se pueden agregar expresiones dentro de un `${}` en lugar de estar rodeada de 2 sumas.
-Estas 2 líneas son equivalentes:
+Bueno, este apartado será corto. Dudaba si designarle todo un subtítulo a las `Template literals` (o template strings), pero no podía dejar de lado a uno de mis trucos favoritos de ES6+. Estas dos líneas son equivalentes:
 ```javascript
-'Bienvenido ' + nombre + ', son las ' + (new Date().getHours() + 1) + ' horas'
+'Bienvenido ' + nombre + ', son las ' + (new Date().getHours() + 1) + ' horas';
 
-`Bienvenido ${nombre}, son las ${new Date().getHours() + 1} horas`
+`Bienvenido ${nombre}, son las ${new Date().getHours() + 1} horas`;
 ```
+Reemplazando las comillas por acentos graves `` ` `` se pueden agregar expresiones dentro de un `${}`, evitando concatenar cadenas y expresiones.
 
 ### Los objetos en JavaScript son más especiales de lo que aparentan
 
