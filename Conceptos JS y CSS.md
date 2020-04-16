@@ -7,7 +7,7 @@ Todavía estoy muy lejos de ser un experto, pero al menos puedo hablar de lo sig
 
 ### ¿Flechas?
 La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada tenía sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_, y desde ese entonces no he parado de usar tan conveniente notación.
-#### Más que un sustituto de _`function`_
+#### Más que un sustituto de `function`
 <img src="assets/images/This-is-complicated.jpeg" width="300">
 
 #### Retorno implícito
