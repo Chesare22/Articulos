@@ -1,7 +1,7 @@
 # Conceptos básicos de JavaScript y CSS que me hubiera gustado aprender en la escuela
 No me malentiendan, aprendí mucho en la escuela. Desarrollo de Aplicaciones Web fue una materia de la que muchos compañeros se enamoraron, y sin ella no sabría jugar con el DOM, qué es Ajax, fundamentos de php, etc.
 
-Sin embargo, en un curso no intensivo de 6 meses hay poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos, y tener buenos compañeros de trabajo es una ayuda dramática.
+Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos, y tener buenos compañeros de trabajo ayuda dramáticamente.
 
 Todavía estoy muy lejos de ser un experto, pero al menos puedo hablar de lo siguiente:
 
