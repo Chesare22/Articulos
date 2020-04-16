@@ -12,7 +12,7 @@ La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un
 
 ### No es necesario sumar cadenas
 Bueno, este apartado es muy corto. Dudaba si designarle todo un subtítulo a las `Template literals` (o template strings), pero no podía dejar de lado a uno de mis trucos favoritos.
-Es un concepto simple introducido en ES6+. Reemplazando las comillas por `&#96;` se pueden agregar expresiones dentro de un `${}` en lugar de estar rodeada de 2 sumas.
+Es un concepto simple introducido en ES6+. Reemplazando las comillas por ``` se pueden agregar expresiones dentro de un `${}` en lugar de estar rodeada de 2 sumas.
 Estas 2 líneas son equivalentes:
 ```javascript
 'Bienvenido ' + nombre + ', son las ' + (new Date().getHours() + 1) + ' horas'
