@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" media="all" href="assets/styles/general.css" />
 # Conceptos básicos de JavaScript y CSS que me hubiera gustado aprender en la escuela
 No me malentiendan, aprendí mucho en la escuela. Desarrollo de Aplicaciones Web fue una materia de la que muchos compañeros se enamoraron, y sin ella no sabría jugar con el DOM, qué es Ajax, fundamentos de php, etc.
 
@@ -5,7 +6,11 @@ Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para ade
 
 Todavía estoy muy lejos de ser un experto, pero al menos puedo hablar de lo siguiente:
 
-### ¿Qué es eso de _=>_?
+### ¿Flechas?
+La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los <span class="mono-space">=></span> pero nada tenía sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_, y desde ese entonces no he parado de usar tan conveniente notación.
+#### Más que un sustituto de function
+![This is complicated](assets/images/This-is-complicated.jpeg "This is complicated")
+#### Retorno implícito
 
 ### No es necesario sumar cadenas
 
@@ -17,4 +22,4 @@ He aquí la parte de CSS que prometí en el título
 ### Mi relación amor-odio con ESLint
 
 ## Un último comentario
-Hay muchos conceptos que los programadores senior deben dominar, y estoy seguro de no conocer ni un cuarto de ellos. Saber usar un lenguaje no lo es todo, pues hay que estar enterado de cosas como modularidad, buenas prácticas, principios SOLID, etc. A veces me siento algo tonto, pero a fin de cuentas es difícil ser un buen desarrollador. Para concluir este artículo, no puedo sino alentarlos a seguir ampliando su base de conocimiento.
+Hay muchos conceptos que los programadores senior deben dominar, y estoy seguro de no conocer ni un cuarto de ellos. Saber usar un lenguaje no lo es todo, también hay que estar enterado de cosas como modularidad, buenas prácticas, principios SOLID, etc. A veces me siento algo tonto, pero a fin de cuentas es difícil ser un buen desarrollador. Para concluir este artículo, no puedo sino alentarlos a seguir ampliando su base de conocimiento.
