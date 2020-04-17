@@ -82,7 +82,9 @@ const obj = {
 };
 ```
 
-<img src="assets/images/This-is-complicated-2.jpeg" width="350" style="margin:auto;">
+<div style="text-align:center; width:100;">
+  <img src="assets/images/This-is-complicated-2.jpeg" width="350">
+</div>
 
 ### Los objetos en JavaScript son más especiales de lo que aparentan
 La vida era más simple cuando creía que los objetos eran simples combinaciones de _clave-valor_, pero todo cambió cuando me hablaron de **`Object.defineProperty()`**.
