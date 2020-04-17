@@ -16,10 +16,10 @@ Al usar acentos graves `` ` `` se pueden agregar expresiones dentro de un `${}`,
 La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada cobraba sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_, y desde ese entonces no he parado de usar tan conveniente notación.
 #### Sintaxis
 La sintaxis (simplificada) de una función anónima es `function(<argumentos>) {<cuerpo>}`. La sintaxis equivalente para la función flecha es `(<argumentos>) => {<cuerpo>}`, pero la segunda tiene un poquito más de azúcar.
-+ **Paréntesis opcionales.-** Si la función flecha recibe un solo argumento y éste no ![se desestructura](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment "Asignación Desestructurante - JavaScript | MDN"), se pueden omitir los paréntesis en el argumento. Es decir, `(<argumento>) => {<cuerpo>}` equivale a `<argumento> => {<cuerpo>}`.
++ **Paréntesis opcionales.-** Si la función flecha recibe un solo argumento y éste no [se desestructura](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment "Asignación Desestructurante - JavaScript | MDN"), se pueden omitir los paréntesis en el argumento. Es decir, `(<argumento>) => {<cuerpo>}` equivale a `<argumento> => {<cuerpo>}`.
 + **Retorno implícito.-** Si el cuerpo la función flecha solo consta de retornar un resultado, eliminar los corchetes hará que el `return` sea implícito. Es decir, `(<argumentos>) => {return <expresión>}` equivale a `(<argumentos>) => <expresión>`.
 
-Por ejemplo: se tiene un arreglo con números, y se desea saber cuáles son mayores a 3. Usemos al conocido método `Array.prototype.filter()`. Por si no habías escuchado de él, _crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada_ (Copypasteado de ![MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter "Array.prototype.filter() - JavaScript | MDN")).
+Por ejemplo: se tiene un arreglo con números, y se desea saber cuáles son mayores a 3. Usemos al conocido método `Array.prototype.filter()`. Por si no habías escuchado de él, _crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada_ (Copypasteado de [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter "Array.prototype.filter() - JavaScript | MDN")).
 ```javascript
 const numbers = [5, 8, 1, 0, 10, -4];
 
@@ -45,7 +45,7 @@ const obj = {
 };
 obj.someMethod();
 ```
-Uno podría pensar que el valor de `obj.promiseSuccessful` sea `true` si la promesa es exitosa, pero ![la manera en que this funciona](https://medium.com/better-programming/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8 "Understanding the “this” Keyword in JavaScript - Better Programming - Medium") hace que este no sea el caso, porque el `this` de la función anónima apunta a un _this global_ en lugar de a `obj`.
+Uno podría pensar que el valor de `obj.promiseSuccessful` sea `true` si la promesa es exitosa, pero [la manera en que this funciona](https://medium.com/better-programming/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8 "Understanding the “this” Keyword in JavaScript - Better Programming - Medium") hace que este no sea el caso, porque el `this` de la función anónima apunta a un _this global_ en lugar de a `obj`.
 
 Conozco dos soluciones. Una es no usar `this` dentro de la función anónima.
 ```javascript
