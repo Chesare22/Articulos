@@ -85,6 +85,7 @@ const obj = {
 <img src="assets/images/This-is-complicated-2.jpeg" width="350">
 
 ### Los objetos en JavaScript son más especiales de lo que aparentan
+La vida era más simple cuando creía que los objetos eran simples combinaciones de _clave-valor_, pero todo cambió cuando me hablaron de **`Object.defineProperty()`**.
 
 ### ¿Cómo se posiciona un elemento encima de otro?
 He aquí la parte de CSS que prometí en el título
