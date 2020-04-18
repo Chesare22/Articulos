@@ -1,7 +1,7 @@
 # Conceptos de JavaScript y CSS que me hubiera gustado aprender en la escuela
-No me malentiendan, aprendí mucho en la facultad. Desarrollo de Aplicaciones Web fue una materia de la que muchos compañeros se enamoraron, y sin ella no sabría jugar con el DOM, qué es Ajax, fundamentos de php, etc.
+No me malentiendan, aprendí mucho en la facultad. Desarrollo de Aplicaciones Web fue una materia de la que muchos compañeros se enamoraron, sin ella no sabría jugar con el DOM, qué es Ajax, fundamentos de php, etc.
 
-Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos, y tener buenos compañeros de trabajo ayuda dramáticamente.
+Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos y hay muchas personas dispuestas a enseñar. Tener buenos compañeros de trabajo ayuda dramáticamente.
 
 ### No es necesario sumar cadenas
 Bueno, este apartado será corto. Dudaba si designarle todo un subtítulo a las **Template literals** (o template strings), pero no podía dejar de lado a uno de mis trucos favoritos de ES6+. Estas dos líneas son equivalentes:
@@ -13,13 +13,13 @@ Bueno, este apartado será corto. Dudaba si designarle todo un subtítulo a las 
 Al usar acentos graves `` ` `` se pueden agregar expresiones dentro de un `${}`, evitando concatenar cadenas y expresiones.
 
 ### ¿A dónde apuntan esas flechas?
-La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada cobraba sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_, y desde ese entonces no he parado de usar tan conveniente notación.
+La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada cobraba sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_. Desde ese entonces no he parado de usar tan conveniente notación.
 #### Sintaxis
 La sintaxis (simplificada) de una función anónima es `function(<argumentos>) {<cuerpo>}`. La sintaxis equivalente para la función flecha es `(<argumentos>) => {<cuerpo>}`, pero la segunda tiene un poquito más de azúcar.
-+ **Paréntesis opcionales.-** Si la función flecha recibe un solo argumento y éste no [se desestructura](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment "Asignación Desestructurante - JavaScript | MDN"), se pueden omitir los paréntesis en el argumento. Es decir, `(<argumento>) => {<cuerpo>}` equivale a `<argumento> => {<cuerpo>}`.
++ **Paréntesis opcionales.-** Si la función flecha recibe un solo argumento que no [se desestructura](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment "Asignación Desestructurante - JavaScript | MDN"), se pueden omitir los paréntesis del argumento. Es decir, `(<argumento>) => {<cuerpo>}` equivale a `<argumento> => {<cuerpo>}`.
 + **Retorno implícito.-** Si el cuerpo la función flecha solo consta de retornar una expresión, eliminar los corchetes hará que el `return` sea implícito. Es decir, `(<argumentos>) => {return <expresión>}` equivale a `(<argumentos>) => <expresión>`.
 
-Por ejemplo: se tiene un arreglo con números, y se desea saber cuáles son mayores a 3. Usemos al conocido método `Array.prototype.filter()`. Por si no habías escuchado de él, _crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada_ (Copypasteado de [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter "Array.prototype.filter() - JavaScript | MDN")).
+Por ejemplo: se tiene un arreglo con números y se desea saber cuáles son mayores a 3. Usemos al conocido método `Array.prototype.filter()`. Por si no habías escuchado de él, _crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada_ (Copypasteado de [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter "Array.prototype.filter() - JavaScript | MDN")).
 ```javascript
 const numbers = [5, 8, 1, 0, 10, -4];
 
@@ -33,7 +33,7 @@ const usingArrow = numbers.filter(number => number > 3);
 ```
 
 #### Más que un sustituto de `function`
-Voy a plantear un problema antes de decir dónde entran las `=>`. Se quiere llamar a una promesa estando dentro de un objeto, y se desea almacenar en el mismo objeto algún valor que diga si la promesa se cumplió o no. Por motivos de simplicidad, la promesa en cuestión se llamará _somePromise_ y no diremos qué hace.
+Voy a plantear un problema antes de decir dónde entran las `=>`. Se quiere llamar a una promesa estando dentro de un objeto y se desea almacenar, en el mismo objeto, algún valor que diga si la promesa se cumplió o no. Por motivos de simplicidad, la promesa en cuestión se llamará _somePromise_ y no diremos qué hace.
 ```javascript
 const obj = {
   promiseSuccessful: false,
@@ -87,11 +87,11 @@ const obj = {
   <img src="assets/images/This-is-complicated-2.jpeg" width="350">
 </p>
 
-### Clave-valor. ¿Tan simple?
-La siguiente anécdota me cambió la vida. Érase una vez un programador novato que quería almacenar un arreglo de objetos, y cierta dependencia requería que los objetos tengan un atributo que no le interesaba guardar. Pensó en una solución más complicada de lo necesaria, involucrando clases y herencia sólo para eliminar ese atributo antes de mandar los datos a la API. No funcionó, y recurrió a un sabio que ya había trabajado con clases en JavaScript. Después de explicar su problema, el sabio le contestó algo que nunca olvidará: _Mejor usa `defineProperty`_.
+### Clave-valor: ¿Tan simple?
+La siguiente anécdota me cambió la vida. Érase una vez un programador novato que quería almacenar un arreglo de objetos y cierta dependencia requería que los objetos tengan un atributo que no le interesaba guardar. Pensó en una complicada solución que involucraba herencia sólo para eliminar ese atributo cuando ya no le sirva. Después de fallar, recurrió a un sabio que ya había trabajado con clases en JavaScript. Le contó lo sucedido al sabio y este contestó: _Mejor usa `defineProperty`_.
 
 ### ¿Cómo se posiciona un elemento encima de otro?
 He aquí la parte de CSS que prometí en el título
 
 ## Un último comentario
-Hay muchos conceptos que los programadores senior deben dominar, y estoy seguro de no conocer ni un cuarto de ellos. Saber usar un lenguaje no lo es todo, también hay que estar enterado de cosas como modularidad, buenas prácticas, principios SOLID, etc. A veces me siento algo tonto, pero a fin de cuentas es difícil ser un buen desarrollador. Para concluir este artículo, no puedo sino alentarlos a seguir ampliando su base de conocimiento.
+Hay muchos conceptos que los Programadores Senior deben dominar y estoy seguro de no conocer ni un cuarto de ellos. Saber usar un lenguaje no lo es todo, también hay que estar enterado de cosas como modularidad, buenas prácticas, principios SOLID, etc. A veces me siento algo tonto, pero a fin de cuentas es difícil ser un buen desarrollador. Para concluir este artículo, no puedo sino alentarlos a seguir ampliando su base de conocimiento.
