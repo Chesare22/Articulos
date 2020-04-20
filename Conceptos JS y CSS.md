@@ -102,13 +102,26 @@ Viendo la sentencia anterior, podemos dar por hecho una serie de característica
 + Guarda un valor (`value`).
 + Se le puede asignar otro valor (`writable`).
 + Se puede configurar (`configurable`): Nada impide que más adelante alguien elimine _nombre_ de _persona_ o modifique sus descriptores (en breve diremos qué es eso).
-+ Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los resultados de funciones como `JSON.stringify(persona)` u `Object.keys(persona)` incluyen la propiedad _nombre_ .
++ Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los resultados de métodos como `JSON.stringify(persona)` u `Object.keys(persona)` incluyen la propiedad _nombre_ .
 
 Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-getters-setters/ "JavaScript Getters and Setters - Jack Franklin") son los **_descriptores_** de una propiedad, los cuales se pueden configurar con `Object.defineProperty()`, un método muy especial que recibe 3 argumentos:
 1. El objeto al cual se le va a agregar o configurar la propiedad.
 2. La clave de la propiedad.
 3. Un objeto con sus descriptores.
-
+```javascript
+// Forma explícita de declarar "persona".
+const persona = {};
+Object.defineProperty(
+  persona,
+  'nombre',
+  {
+    value: 'Esteban Dido',
+    writable: true,
+    configurable: true,
+    enumerable: true
+  }
+);
+```
 Si quiero que _persona_ tenga la propiedad _secreto_ pero no quiero que aparezca en el resultado de `JSON.stringify(persona)`, defino _secreto_ como no enumerable.
 ```javascript
 const persona = {
