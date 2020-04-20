@@ -45,7 +45,7 @@ const obj = {
 };
 obj.someMethod();
 ```
-Uno podría pensar que el valor de `obj.promiseSuccessful` sea `true` si la promesa es exitosa, pero [la manera en que this funciona](https://medium.com/better-programming/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8 "Understanding the “this” Keyword in JavaScript - Better Programming - Medium") hace que este no sea el caso, porque el `this` dentro de la función anónima apunta a un _this global_ en lugar de a `obj`.
+Uno podría pensar que el valor de `obj.promiseSuccessful` sea `true` si la promesa es exitosa, pero [la manera en que `this` funciona](https://medium.com/better-programming/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8 "Understanding the “this” Keyword in JavaScript - Better Programming - Medium") hace que este no sea el caso, porque el `this` dentro de la función anónima apunta a un _this global_ en lugar de a `obj`.
 
 Conozco dos soluciones. Una es no usar `this` dentro de la función anónima.
 ```javascript
