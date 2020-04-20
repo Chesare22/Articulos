@@ -87,11 +87,42 @@ const obj = {
   <img src="assets/images/This-is-complicated-2.jpeg" width="350">
 </p>
 
-### Clave-valor: ¿Tan simple?
-La siguiente anécdota me cambió la vida. Érase una vez un programador novato que quería almacenar un arreglo de objetos y cierta dependencia requería que los objetos tengan un atributo que no le interesaba guardar. Pensó en una complicada solución que involucraba herencia sólo para eliminar ese atributo cuando ya no le sirva. Después de fallar, recurrió a un sabio que ya había trabajado con clases en JavaScript. Le contó lo sucedido al sabio y este contestó: _Mejor usa `defineProperty`_.
-
 ### ¿Cómo se posiciona un elemento encima de otro?
 He aquí la parte de CSS que prometí en el título
+
+### Expandiendo la idea de clave-valor
+Recuerdo el día que me hablaron de `Object.defineProperty()` como si fuera ayer. Quería almacenar (en formato _JSON_) un arreglo de objetos y cierta dependencia requería que los objetos tengan un atributo que no me interesaba guardar, pero lo complicado era que los objetos podían tener una estructura diferente. Después de intentar una complicada solución (y fallar) le pedí ayuda a un amigo, y su respuesta cambió mi manera de ver los objetos en JavaScript.
+#### "Usa `Object.defineProperty()`"
+Cuando se hace lo siguiente:
+```javascript
+const persona = {
+  nombre: 'Esteban Dido',
+};
+```
+Hay una serie de características sobre _nombre_ que se dan por hecho:
++ Guarda un valor (`value`).
++ Se le puede asignar otro valor (`writable`).
++ Se puede configurar (`configurable`).- Nada impide que más adelante alguien elimine _nombre_ de _persona_ o modifique sus descriptores (en breve diremos qué es eso).
++ Aparece al enumerar las propiedades (`enumerable`).- Esto quiere decir que los resultados de funciones como `JSON.stringify(persona)` u `Object.keys(persona)` incluyen la propiedad _nombre_ .
+
+Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-getters-setters/ "JavaScript Getters and Setters - Jack Franklin") son los **_descriptores_** de la propiedad, los cuales se pueden configurar con `Object.defineProperty()`.
+Este método recibe 3 argumentos:
+1. El objeto al cual se le va a agregar o configurar la propiedad.
+2. La clave de la propiedad.
+3. Un objeto con sus descriptores.
+
+Si quiero que _persona_ tenga la propiedad _secreto_ pero no quiero que aparezca en el resultado de `JSON.stringify(persona)`, defino _secreto_ como no enumerable.
+```javascript
+const persona = {
+  nombre: 'Esteban Dido',
+};
+Object.defineProperty(persona, 'secreto', {
+  value: 'Robo chicles del Oxxo',
+  enumerable: false,
+});
+JSON.stringify(persona); // '{"nombre":"Esteban Dido"}'
+persona.secreto; // 'Robo chicles del Oxxo'
+```
 
 ## Un último comentario
 Hay muchos conceptos que los Programadores Senior deben dominar y estoy seguro de no conocer ni un cuarto de ellos. Saber usar un lenguaje no lo es todo, también hay que estar enterado de cosas como modularidad, buenas prácticas, principios SOLID, etc. A veces me siento algo tonto, pero a fin de cuentas es difícil ser un buen desarrollador. Para concluir este artículo, no puedo sino alentarlos a seguir ampliando su base de conocimiento.
