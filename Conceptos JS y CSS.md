@@ -1,7 +1,7 @@
 # Conceptos de JavaScript que me hubiera gustado aprender en la escuela
 No me malentiendan, aprendí mucho en la facultad. Desarrollo de Aplicaciones Web fue una materia de la que muchos compañeros se enamoraron, sin ella no sabría jugar con el DOM, qué es Ajax, fundamentos de php, etc.
 
-Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos y hay muchas personas dispuestas a enseñar. Tener buenos compañeros de trabajo ayuda dramáticamente.
+Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos. Yo he sido muy afortunado, pues tener buenos compañeros de trabajo ayuda dramáticamente.
 
 ### No es necesario sumar cadenas
 Bueno, este apartado será corto. Dudaba si designarle todo un subtítulo a las **Template literals** (o template strings), pero no podía dejar de lado a uno de mis trucos favoritos de ES6+. Estas dos líneas son equivalentes:
@@ -13,7 +13,7 @@ Bueno, este apartado será corto. Dudaba si designarle todo un subtítulo a las 
 Al usar acentos graves `` ` `` se pueden agregar expresiones dentro de un `${}`, evitando concatenar cadenas y expresiones.
 
 ### ¿A dónde apuntan esas flechas?
-La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada cobraba sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_. Desde ese entonces no he parado de usar tan conveniente notación.
+La primera vez que vi un símbolo de "igual" junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada cobraba sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_. Desde ese entonces no he parado de usar tan conveniente notación.
 #### Sintaxis
 La sintaxis (simplificada) de una función anónima es `function(<argumentos>) {<cuerpo>}`. La sintaxis equivalente para la función flecha es `(<argumentos>) => {<cuerpo>}`, pero la segunda tiene un poquito más de azúcar.
 + **Paréntesis opcionales:** Si la función flecha recibe un solo argumento que no [se desestructura](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment "Asignación Desestructurante - JavaScript | MDN"), se pueden omitir los paréntesis del argumento. Es decir, `(<argumento>) => {<cuerpo>}` equivale a `<argumento> => {<cuerpo>}`.
@@ -96,10 +96,10 @@ const persona = {
   nombre: 'Esteban Dido'
 };
 ```
-Viendo la sentencia anterior, podemos dar por hecho una serie de características sobre _nombre_:
+Viendo el objeto anterior, podemos dar por hecho una serie de características sobre _nombre_:
 + Guarda un valor (`value`).
 + Se le puede asignar otro valor (`writable`).
-+ Se puede configurar (`configurable`): Nada impide que más adelante alguien elimine _nombre_ de _persona_ o modifique sus descriptores (en breve diremos qué es eso).
++ Se puede configurar (`configurable`): Nada impide que más adelante alguien elimine _nombre_ o modifique sus descriptores (en breve diremos qué es eso).
 + Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los métodos que usan las propiedades de _persona_, como [JSON.stringify()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify "JSON.stringify() - JavaScript | MDN") u [Object.keys()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys "Object.keys() - JavaScript | MDN"), también incluyen a _nombre_.
 
 Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-getters-setters/ "JavaScript Getters and Setters - Jack Franklin") son los **_descriptores_** de una propiedad. La forma de modificar los descriptores de una propiedad es con `Object.defineProperty()`, un método muy especial que recibe 3 argumentos:
@@ -135,7 +135,7 @@ Object.defineProperty(persona, 'secreto', {
 JSON.stringify(persona); // '{"nombre":"Esteban Dido"}'
 persona.secreto; // 'Robo chicles del Oxxo'
 ```
-Anécdota: En una ocasión quería guardar un arreglo de objetos en formato _JSON_, pero cierta dependencia requería que esos objetos tengan un valor que no me interesaba almacenar. El mayor problema era que los objetos tenían estructuras diferentes, así que no podía simplemente eliminar ese valor. Después de intentar una solución complicada (y fallar) un amigo me habló de `Object.defineProperty()` y no podía creer que eso sea posible.
+Anécdota: En una ocasión quería guardar (en formato _JSON_) un arreglo de objetos, pero cierta dependencia requería que esos objetos tengan un valor que no me interesaba almacenar. El mayor problema era que los objetos tenían estructuras diferentes, así que no podía simplemente eliminar ese valor. Después de fallar la implementación de una solución complicada le pedí ayuda a un amigo, quien me habló de `Object.defineProperty()`. No podía creer que sea posible configurar una propiedad.
 
 ## Un último comentario
 Hay muchos conceptos que los Programadores Senior deben dominar y estoy seguro de no conocer ni un cuarto de ellos. Saber usar un lenguaje no lo es todo, también hay que estar enterado de cosas como modularidad, buenas prácticas, principios SOLID, etc. A veces me siento algo tonto, pero a fin de cuentas es difícil ser un buen desarrollador. Para concluir este artículo, no puedo sino alentarlos a seguir ampliando su base de conocimiento.
