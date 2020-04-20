@@ -97,9 +97,9 @@ const persona = {
   nombre: 'Esteban Dido'
 };
 ```
-Viendo el objeto anterior, podemos dar por hecho una serie de características sobre _nombre_:
-+ Guarda un valor (`value`). En este caso, el valor es _'Esteban Dido'_
-+ Se le puede asignar otro valor (`writable`).
+El objeto anterior representa a una persona y su nombre. No nos fijaremos en el objeto en sí, sino de su propiedad _nombre_. Tal propiedad tiene las siguientes características:
++ Guarda un valor (`value`). En este caso, el valor es _'Esteban Dido'_.
++ Se le puede asignar otro valor (`writable`): Más adelante, alguien podría cambiarle su _nombre_.
 + Se puede configurar (`configurable`): Nada impide que más adelante alguien elimine _nombre_ o modifique sus descriptores (en breve diremos qué es eso).
 + Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los métodos que usen las propiedades de _persona_, como [JSON.stringify()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify "JSON.stringify() - JavaScript | MDN") u [Object.keys()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys "Object.keys() - JavaScript | MDN"), también incluyen a _nombre_.
 
@@ -107,7 +107,7 @@ Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-g
 1. El objeto al cual se le va a agregar o configurar la propiedad.
 2. La clave de la propiedad.
 3. Un objeto con sus descriptores.
-
+Si quisiéramos definir la propiedad _nombre_ de manera explícita, haríamos lo siguiente:
 ```javascript
 const persona = {};
 Object.defineProperty(
