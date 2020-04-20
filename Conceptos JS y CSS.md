@@ -140,3 +140,16 @@ Anécdota: En una ocasión quería guardar (en formato _JSON_) un arreglo de obj
 
 ## Un último comentario
 Hay muchos conceptos que los Programadores Senior deben dominar y estoy seguro de no conocer ni un cuarto de ellos. Saber usar un lenguaje no lo es todo, también hay que estar enterado de cosas como modularidad, buenas prácticas, principios SOLID, etc. A veces me siento algo tonto, pero a fin de cuentas es difícil ser un buen desarrollador. Para concluir este artículo, no puedo sino alentarlos a seguir ampliando su base de conocimiento.
+### Enlaces
++ [Asignación Desestructurante - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment).
++ [Array.prototype.filter() - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter).
++ [Understanding the “this” Keyword in JavaScript - Better Programming - Medium](https://medium.com/better-programming/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8).
++ [File:TWO LONG-TIME RESIDENTS OF NEPTUNE ROAD.](https://commons.wikimedia.org/wiki/File:TWO_LONG-TIME_RESIDENTS_OF_NEPTUNE_ROAD._MATHEW_VIEIRA_HAS_LIVED_HERE_53_OF_HIS_60_YEARS._MARY_BRUNO_WAS_BORN_HERE_-_NARA_-_548482.jpg).
++ [Object.defineProperty() - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperty)
++ [JSON.stringify() - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify).
++ [Object.keys() - JavaScript | MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys).
++ [JavaScript Getters and Setters - Jack Franklin](https://www.jackfranklin.co.uk/blog/es5-getters-setters/).
+### Recursos recomendados
++ [Design patterns in Node.js: A practical guide - LogRocket Blog](https://blog.logrocket.com/design-patterns-in-node-js/).
++ [Jake Archibald: In The Loop - JSConf.Asia - YouTube](https://youtu.be/cCOL7MC4Pl0).
++ [6 Things Your Junior Devs Don't Tell You - YouTube](https://youtu.be/m6G8f9pZZRM).
