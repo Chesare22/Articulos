@@ -16,8 +16,8 @@ Al usar acentos graves `` ` `` se pueden agregar expresiones dentro de un `${}`,
 La primera vez que vi un símbolo de igual junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada cobraba sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_. Desde ese entonces no he parado de usar tan conveniente notación.
 #### Sintaxis
 La sintaxis (simplificada) de una función anónima es `function(<argumentos>) {<cuerpo>}`. La sintaxis equivalente para la función flecha es `(<argumentos>) => {<cuerpo>}`, pero la segunda tiene un poquito más de azúcar.
-+ **Paréntesis opcionales.-** Si la función flecha recibe un solo argumento que no [se desestructura](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment "Asignación Desestructurante - JavaScript | MDN"), se pueden omitir los paréntesis del argumento. Es decir, `(<argumento>) => {<cuerpo>}` equivale a `<argumento> => {<cuerpo>}`.
-+ **Retorno implícito.-** Si el cuerpo la función flecha solo consta de retornar una expresión, eliminar los corchetes hará que el `return` sea implícito. Es decir, `(<argumentos>) => {return <expresión>}` equivale a `(<argumentos>) => <expresión>`.
++ **Paréntesis opcionales:** Si la función flecha recibe un solo argumento que no [se desestructura](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment "Asignación Desestructurante - JavaScript | MDN"), se pueden omitir los paréntesis del argumento. Es decir, `(<argumento>) => {<cuerpo>}` equivale a `<argumento> => {<cuerpo>}`.
++ **Retorno implícito:** Si el cuerpo la función flecha solo consta de retornar una expresión, eliminar los corchetes hará que el `return` sea implícito. Es decir, `(<argumentos>) => {return <expresión>}` equivale a `(<argumentos>) => <expresión>`.
 
 Por ejemplo: se tiene un arreglo con números y se desea saber cuáles son mayores a 3. Usemos al conocido método `Array.prototype.filter()`. Por si no habías escuchado de él, _crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada_ (Copypasteado de [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter "Array.prototype.filter() - JavaScript | MDN")).
 ```javascript
@@ -33,7 +33,7 @@ const usingArrow = numbers.filter(number => number > 3);
 ```
 
 #### Más que un sustituto de `function`
-Voy a plantear un problema antes de decir dónde entran las `=>`. Se quiere llamar a una promesa estando dentro de un objeto y se desea almacenar, en el mismo objeto, algún valor que diga si la promesa se cumplió o no. Por motivos de simplicidad, la promesa en cuestión se llamará _somePromise_ y no diremos qué hace.
+Voy a plantear un problema antes de decir dónde entran las `=>`. Dentro del método de un objeto se quiere llamar a una promesa y se desea almacenar, en el mismo objeto, algún valor que diga si la promesa se cumplió o no. Por motivos de simplicidad, la promesa en cuestión se llamará _somePromise_ y no diremos qué hace.
 ```javascript
 const obj = {
   promiseSuccessful: false,
@@ -91,22 +91,20 @@ const obj = {
 He aquí la parte de CSS que prometí en el título
 
 ### Expandiendo la idea de clave-valor
-Recuerdo el día que me hablaron de `Object.defineProperty()` como si fuera ayer. Quería almacenar (en formato _JSON_) un arreglo de objetos y cierta dependencia requería que los objetos tengan un atributo que no me interesaba guardar, pero lo complicado era que los objetos podían tener una estructura diferente. Después de intentar una complicada solución (y fallar) le pedí ayuda a un amigo, y su respuesta cambió mi manera de ver los objetos en JavaScript.
+Recuerdo el día que me hablaron de [Object.defineProperty()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperty "Object.defineProperty() - JavaScript | MDN") como si fuera ayer. Quería almacenar (en formato _JSON_) un arreglo de objetos y cierta dependencia requería que los objetos tengan un atributo que no me interesaba guardar, pero lo complicado era que los objetos podían tener una estructura diferente. Después de intentar una complicada solución (y fallar) le pedí ayuda a un amigo. Su respuesta cambió mi manera de ver los objetos en JavaScript.
 #### "Usa `Object.defineProperty()`"
-Cuando se hace lo siguiente:
 ```javascript
 const persona = {
-  nombre: 'Esteban Dido',
+  nombre: 'Esteban Dido'
 };
 ```
-Hay una serie de características sobre _nombre_ que se dan por hecho:
+Viendo la sentencia anterior, podemos dar por hecho una serie de características sobre _nombre_:
 + Guarda un valor (`value`).
 + Se le puede asignar otro valor (`writable`).
-+ Se puede configurar (`configurable`).- Nada impide que más adelante alguien elimine _nombre_ de _persona_ o modifique sus descriptores (en breve diremos qué es eso).
-+ Aparece al enumerar las propiedades (`enumerable`).- Esto quiere decir que los resultados de funciones como `JSON.stringify(persona)` u `Object.keys(persona)` incluyen la propiedad _nombre_ .
++ Se puede configurar (`configurable`): Nada impide que más adelante alguien elimine _nombre_ de _persona_ o modifique sus descriptores (en breve diremos qué es eso).
++ Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los resultados de funciones como `JSON.stringify(persona)` u `Object.keys(persona)` incluyen la propiedad _nombre_ .
 
-Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-getters-setters/ "JavaScript Getters and Setters - Jack Franklin") son los **_descriptores_** de la propiedad, los cuales se pueden configurar con `Object.defineProperty()`.
-Este método recibe 3 argumentos:
+Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-getters-setters/ "JavaScript Getters and Setters - Jack Franklin") son los **_descriptores_** de una propiedad, los cuales se pueden configurar con `Object.defineProperty()`, un método muy especial que recibe 3 argumentos:
 1. El objeto al cual se le va a agregar o configurar la propiedad.
 2. La clave de la propiedad.
 3. Un objeto con sus descriptores.
@@ -114,11 +112,11 @@ Este método recibe 3 argumentos:
 Si quiero que _persona_ tenga la propiedad _secreto_ pero no quiero que aparezca en el resultado de `JSON.stringify(persona)`, defino _secreto_ como no enumerable.
 ```javascript
 const persona = {
-  nombre: 'Esteban Dido',
+  nombre: 'Esteban Dido'
 };
 Object.defineProperty(persona, 'secreto', {
   value: 'Robo chicles del Oxxo',
-  enumerable: false,
+  enumerable: false
 });
 JSON.stringify(persona); // '{"nombre":"Esteban Dido"}'
 persona.secreto; // 'Robo chicles del Oxxo'
