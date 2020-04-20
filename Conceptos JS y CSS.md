@@ -10,7 +10,7 @@ Bueno, este apartado será corto. Dudaba si designarle todo un subtítulo a las 
 
 `Bienvenido ${nombre}, son las ${new Date().getHours() + 1} horas`;
 ```
-Al usar acentos graves `` ` `` se pueden agregar expresiones dentro de un `${}`, evitando concatenar cadenas y expresiones.
+Al usar acentos graves `` ` `` se pueden agregar expresiones dentro de un `${}`, haciendo más bonita la concatenación de cadenas y expresiones.
 
 ### ¿A dónde apuntan esas flechas?
 La primera vez que vi un símbolo de "igual" junto al "mayor que" creí que era un operador lógico. Leía y releía los `=>` pero nada cobraba sentido. Entonces lo encontré, aquel video de YouTube que decía _eso es una función flecha_. Desde ese entonces no he parado de usar tan conveniente notación.
@@ -19,7 +19,7 @@ La sintaxis (simplificada) de una función anónima es `function(<argumentos>) {
 + **Paréntesis opcionales:** Si la función flecha recibe un solo argumento que no [se desestructura](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment "Asignación Desestructurante - JavaScript | MDN"), se pueden omitir los paréntesis del argumento. Es decir, `(<argumento>) => {<cuerpo>}` equivale a `<argumento> => {<cuerpo>}`.
 + **Retorno implícito:** Si el cuerpo la función flecha solo consta de retornar una expresión, eliminar los corchetes hará que el `return` sea implícito. Es decir, `(<argumentos>) => {return <expresión>}` equivale a `(<argumentos>) => <expresión>`.
 
-Por ejemplo: se tiene un arreglo con números y se desea saber cuáles son mayores a 3. Usemos al conocido método `Array.prototype.filter()`. Por si no habías escuchado de él, _crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada_ (Copypasteado de [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter "Array.prototype.filter() - JavaScript | MDN")).
+Por ejemplo: se tiene un arreglo con números y se desea saber cuáles son mayores a 3. Usemos al método `Array.prototype.filter()`. Por si no habías escuchado de él, _crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada_ (Copypasteado de [MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter "Array.prototype.filter() - JavaScript | MDN")).
 ```javascript
 const numbers = [5, 8, 1, 0, 10, -4];
 
@@ -33,7 +33,7 @@ const usingArrow = numbers.filter(number => number > 3);
 ```
 
 #### Más que un sustituto de `function`
-Voy a plantear un problema antes de decir dónde entran las `=>`. Dentro del método de un objeto se quiere llamar a una promesa y se desea almacenar, en el mismo objeto, algún valor que diga si la promesa se cumplió o no. Por motivos de simplicidad, la promesa en cuestión se llamará _somePromise_ y no diremos qué hace.
+Voy a plantear un problema antes de decir dónde entran las `=>`. Dentro de un método de un objeto se quiere llamar a una promesa y se desea almacenar, en el mismo objeto, algún valor que diga si la promesa se cumplió o no. Por motivos de simplicidad, la promesa en cuestión se llamará _somePromise_ y no diremos qué hace.
 ```javascript
 const obj = {
   promiseSuccessful: false,
@@ -71,7 +71,7 @@ La otra solución es usar una función flecha. **La característica más distint
 En este ejemplo, la función flecha fue declarada dentro de _someMethod_. Como el `this` dentro de _someMethod_ apunta a `obj`, el `this` dentro de la función flecha también apuntará a `obj`.
 
 #### Cuándo no usarlas
-Si al crear un objeto se usan funciones flecha para declarar sus métodos, el `this` de tales métodos no va a apuntar al objeto, sino al `this` del lugar donde se creó. Por ejemplo: las siguientes líneas tienen un problema similar al que teníamos inicialmente. Debido al uso de `=>` al declarar _someMethod_, el `this` hace referencia al lugar donde se creó `obj`, no al mismo `obj`.
+Si al crear un objeto se usan funciones flecha para declarar sus métodos, el `this` de tales métodos no va a apuntar al objeto, sino al `this` del lugar donde se creó. Por ejemplo: las siguientes líneas tienen un problema similar al que teníamos inicialmente.
 ```javascript
 const obj = {
   promiseSuccessful: false,
@@ -82,6 +82,7 @@ const obj = {
   }
 };
 ```
+Debido al uso de `=>` al declarar _someMethod_, el `this` hace referencia al lugar donde se creó `obj`, no al mismo `obj`.
 
 <p align="center">
   <img src="assets/images/This-is-complicated-2.jpeg" width="350">
@@ -97,10 +98,10 @@ const persona = {
 };
 ```
 Viendo el objeto anterior, podemos dar por hecho una serie de características sobre _nombre_:
-+ Guarda un valor (`value`).
++ Guarda un valor (`value`). En este caso, el valor es _'Esteban Dido'_
 + Se le puede asignar otro valor (`writable`).
 + Se puede configurar (`configurable`): Nada impide que más adelante alguien elimine _nombre_ o modifique sus descriptores (en breve diremos qué es eso).
-+ Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los métodos que usan las propiedades de _persona_, como [JSON.stringify()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify "JSON.stringify() - JavaScript | MDN") u [Object.keys()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys "Object.keys() - JavaScript | MDN"), también incluyen a _nombre_.
++ Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los métodos que usen las propiedades de _persona_, como [JSON.stringify()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify "JSON.stringify() - JavaScript | MDN") u [Object.keys()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys "Object.keys() - JavaScript | MDN"), también incluyen a _nombre_.
 
 Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-getters-setters/ "JavaScript Getters and Setters - Jack Franklin") son los **_descriptores_** de una propiedad. La forma de modificar los descriptores de una propiedad es con `Object.defineProperty()`, un método muy especial que recibe 3 argumentos:
 1. El objeto al cual se le va a agregar o configurar la propiedad.
