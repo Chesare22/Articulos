@@ -1,4 +1,4 @@
-# Conceptos de JavaScript y CSS que me hubiera gustado aprender en la escuela
+# Conceptos de JavaScript que me hubiera gustado aprender en la escuela
 No me malentiendan, aprendí mucho en la facultad. Desarrollo de Aplicaciones Web fue una materia de la que muchos compañeros se enamoraron, sin ella no sabría jugar con el DOM, qué es Ajax, fundamentos de php, etc.
 
 Es de esperar que en un curso no intensivo de 6 meses haya poco espacio para adentrarse en detalles y truquitos de cada lenguaje. El lado positivo es que todavía se cuenta con el resto de una vida para aprenderlos y hay muchas personas dispuestas a enseñar. Tener buenos compañeros de trabajo ayuda dramáticamente.
@@ -71,7 +71,7 @@ La otra solución es usar una función flecha. **La característica más distint
 En este ejemplo, la función flecha fue declarada dentro de _someMethod_. Como el `this` dentro de _someMethod_ apunta a `obj`, el `this` dentro de la función flecha también apuntará a `obj`.
 
 #### Cuándo no usarlas
-Si al crear un objeto se usan funciones flecha para declarar sus métodos, el `this` de tales métodos no va a apuntar al objeto, sino al `this` del lugar donde se creó. Por ejemplo: las siguientes líneas tienen un problema muy similar al que teníamos inicialmente. Debido al uso de `=>` al declarar _someMethod_, el `this` hace referencia al lugar donde se creó `obj`, no al mismo `obj`.
+Si al crear un objeto se usan funciones flecha para declarar sus métodos, el `this` de tales métodos no va a apuntar al objeto, sino al `this` del lugar donde se creó. Por ejemplo: las siguientes líneas tienen un problema similar al que teníamos inicialmente. Debido al uso de `=>` al declarar _someMethod_, el `this` hace referencia al lugar donde se creó `obj`, no al mismo `obj`.
 ```javascript
 const obj = {
   promiseSuccessful: false,
@@ -87,12 +87,10 @@ const obj = {
   <img src="assets/images/This-is-complicated-2.jpeg" width="350">
 </p>
 
-### ¿Cómo se posiciona un elemento encima de otro?
-He aquí la parte de CSS que prometí en el título
-
 ### Expandiendo la idea de clave-valor
-Recuerdo el día que me hablaron de [Object.defineProperty()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperty "Object.defineProperty() - JavaScript | MDN") como si fuera ayer. Quería almacenar (en formato _JSON_) un arreglo de objetos y cierta dependencia requería que los objetos tengan un atributo que no me interesaba guardar, pero lo complicado era que los objetos podían tener una estructura diferente. Después de intentar una complicada solución (y fallar) le pedí ayuda a un amigo. Su respuesta cambió mi manera de ver los objetos en JavaScript.
-#### "Usa `Object.defineProperty()`"
+Cuando empecé a programar en JavaScript me llamó mucho la atención que los objetos aquí no son instancias de una clase. Los veía como sacos que permiten agregar y quitar cosas a lo desgraciado y sin privacidad. Sigo viéndolos de esa forma, pero ahora sé que pueden tener un par de reglas más.
+
+Este apartado no es para hablar de los objetos en sí, sino una parte fundamental de ellos: las propiedades.
 ```javascript
 const persona = {
   nombre: 'Esteban Dido'
@@ -102,19 +100,19 @@ Viendo la sentencia anterior, podemos dar por hecho una serie de característica
 + Guarda un valor (`value`).
 + Se le puede asignar otro valor (`writable`).
 + Se puede configurar (`configurable`): Nada impide que más adelante alguien elimine _nombre_ de _persona_ o modifique sus descriptores (en breve diremos qué es eso).
-+ Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los resultados de métodos como `JSON.stringify(persona)` u `Object.keys(persona)` incluyen la propiedad _nombre_ .
++ Aparece al enumerar las propiedades (`enumerable`): Esto quiere decir que los métodos que usan las propiedades de _persona_, como [JSON.stringify()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify "JSON.stringify() - JavaScript | MDN") u [Object.keys()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys "Object.keys() - JavaScript | MDN"), también incluyen a _nombre_.
 
-Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-getters-setters/ "JavaScript Getters and Setters - Jack Franklin") son los **_descriptores_** de una propiedad, los cuales se pueden configurar con `Object.defineProperty()`, un método muy especial que recibe 3 argumentos:
+Estas características [y un par más](https://www.jackfranklin.co.uk/blog/es5-getters-setters/ "JavaScript Getters and Setters - Jack Franklin") son los **_descriptores_** de una propiedad. La forma de modificar los descriptores de una propiedad es con `Object.defineProperty()`, un método muy especial que recibe 3 argumentos:
 1. El objeto al cual se le va a agregar o configurar la propiedad.
 2. La clave de la propiedad.
 3. Un objeto con sus descriptores.
+
 ```javascript
-// Forma explícita de declarar "persona".
 const persona = {};
 Object.defineProperty(
-  persona,
-  'nombre',
-  {
+  persona, // Objeto a modificar
+  'nombre', // Clave de la propiedad
+  { // Descriptores
     value: 'Esteban Dido',
     writable: true,
     configurable: true,
@@ -122,7 +120,10 @@ Object.defineProperty(
   }
 );
 ```
-Si quiero que _persona_ tenga la propiedad _secreto_ pero no quiero que aparezca en el resultado de `JSON.stringify(persona)`, defino _secreto_ como no enumerable.
+#### Propiedades semi ocultas
+Lo que me inspiró a hablar de descriptores en este artículo fue `enumerable`, pues me parece el más interesante de todos.
+
+Si quiero que _persona_ tenga la propiedad _secreto_ pero no quiero que esa propiedad aparezca en el resultado de `JSON.stringify(persona)`, puedo definir _secreto_ como no enumerable.
 ```javascript
 const persona = {
   nombre: 'Esteban Dido'
@@ -134,6 +135,7 @@ Object.defineProperty(persona, 'secreto', {
 JSON.stringify(persona); // '{"nombre":"Esteban Dido"}'
 persona.secreto; // 'Robo chicles del Oxxo'
 ```
+Anécdota: En una ocasión quería guardar un arreglo de objetos en formato _JSON_, pero cierta dependencia requería que esos objetos tengan un valor que no me interesaba almacenar. El mayor problema era que los objetos tenían estructuras diferentes, así que no podía simplemente eliminar ese valor. Después de intentar una solución complicada (y fallar) un amigo me habló de `Object.defineProperty()` y no podía creer que eso sea posible.
 
 ## Un último comentario
 Hay muchos conceptos que los Programadores Senior deben dominar y estoy seguro de no conocer ni un cuarto de ellos. Saber usar un lenguaje no lo es todo, también hay que estar enterado de cosas como modularidad, buenas prácticas, principios SOLID, etc. A veces me siento algo tonto, pero a fin de cuentas es difícil ser un buen desarrollador. Para concluir este artículo, no puedo sino alentarlos a seguir ampliando su base de conocimiento.
