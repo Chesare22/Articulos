@@ -3,7 +3,7 @@ Esta es una colección de conceptos y técnicas para hacer código con mejor cal
 
 ### Conceptos
 + Tipos de parámetros
-+ [Efectos secundarios en funciones](Refactor/Efectos%20secundarios.md)
++ [Efectos secundarios en funciones](Efectos%20secundarios.md)
 
 ### Técnicas
 + Usar `if`s para casos especiales.
