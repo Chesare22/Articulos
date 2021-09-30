@@ -16,9 +16,9 @@ En programación, las funciones son colecciones de instrucciones en secuencia. U
 
 Un objeto junta funciones y datos en una misma entidad. Las funciones dentro de un objeto se llaman "métodos", y los datos se llaman "propiedades". Un método puede acceder a las propiedades y otros métodos del objeto mediante la palabra `this`.
 
-## Conceptos relacionados a un estilo funcional
+## Principios de un estilo de programación funcional
 
-Así como la programación orientada a objetos tiene los principios SOLID, la programación funcional tiene sus formas para lograr el desarrollo de código mantenible, robusto, legible, bonito, etc.
+Existen muchos estilos de programación, llamados paradigmas. Un paradigma cambia tu forma de pensar en cómo desarrollar programas. Cada paradigma tiene sus propios principios para escribir código robusto, mantenible, legible, etc. Los principios descritos en este documento son algunos de los necesarios para programar en un estilo funcional, donde los computos se tratan como la evaluación de funciones matemáticas.
 
 ### Transparencia
 
@@ -49,11 +49,15 @@ Mandar un objeto mutable a un método cualquiera puede llegar a dar miedo porque
 
 ### Evitar efectos secundarios
 
-**TODO: Describir qué es un efecto secundario.**
+Un efecto secundario es cualquier cambio que ocurra fuera del ámbito de una función. Ejemplos de efectos secundarios son: imprimir datos en una consola, modificar datos globales, guardar datos en un archivo, cambiar el color de un botón en una interfaz gráfica, etc.
+
+Las funciones puras son aquellas que no generan efectos secundarios ni dependen de ellos. Su única labor es convertir datos de entrada en datos de salida. Esta característica facilita su composición y hace que pensemos en menos cosas a la vez cuando se necesiten usarlas.
 
 Obsérvese que las funciones puras también son transparentes, deterministas y no mutan datos.
 
-Recomiendo ver la plática [Functional architecture - The pits of success — Mark Seemann](https://youtu.be/US8QG9I1XW0), donde explica cómo se pueden construir sistemas grandes formados mayormente por funciones puras.
+Obsérvese también que si una función `a` usa internamente otra función `b` que no sea pura, la función `a` tampoco será pura.
+
+No es necesario que todas las funciones en un programa sean puras, pero en un estilo funcional la mayoría de funciones lo son. Recomiendo ver la plática [Functional architecture - The pits of success — Mark Seemann](https://youtu.be/US8QG9I1XW0), donde explica cómo se pueden construir sistemas grandes formados mayormente por funciones puras.
 
 ### La programación funcional es declarativa
 
