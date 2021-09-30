@@ -1,3 +1,21 @@
+## Conceptos básicos de programación
+
+### Valores (o datos)
+
+Existen muchos tipos de valores. Existen números enteros, números decimales, colecciones de números enteros, cadenas de texto, archivos de excel, etc. Nótese que un dato no es lo mismo que la visualización de un dato. Por ejemplo, un archivo de excel es un dato que la computadora representa en bits, pero para su visualización es necesaria una interfaz gráfica que nos presente ese dato.
+
+### Programas
+
+Un programa es aquello que maneja datos, ya sea para modificarlos, visualizarlos, guardarlos, compartirlos, crearlos, etc. Un programa está compuesto por instrucciones. Cada instrucción es muy simple. Hay instrucciones para esperar datos del usuario, para hacer operaciones sobre datos, etc. Existen instrucciones que deciden qué otras instrucciones ejecutar.
+
+### Funciones
+
+En programación, las funciones son colecciones de instrucciones en secuencia. Una función recibe datos de entrada y al final siempre devuelve un dato. Existen funciones, llamadas funciones puras, que solo se limitan a convertir los datos de entrada en datos de salida. Más adelante se discutirán a fondo.
+
+### Objetos
+
+Un objeto junta funciones y datos en una misma entidad. Las funciones dentro de un objeto se llaman "métodos", y los datos se llaman "propiedades". Un método puede acceder a las propiedades y otros métodos del objeto mediante la palabra `this`.
+
 ## Conceptos relacionados a un estilo funcional
 
 Así como la programación orientada a objetos tiene los principios SOLID, la programación funcional tiene sus formas para lograr el desarrollo de código mantenible, robusto, legible, bonito, etc.
