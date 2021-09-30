@@ -8,6 +8,10 @@ Existen muchos tipos de valores. Existen números enteros, números decimales, c
 
 Un programa es aquello que maneja datos, ya sea para modificarlos, visualizarlos, guardarlos, compartirlos, crearlos, etc. Un programa está compuesto por instrucciones. Cada instrucción es muy simple. Hay instrucciones para esperar datos del usuario, para hacer operaciones sobre datos, etc. Existen instrucciones que deciden qué otras instrucciones ejecutar.
 
+### Memoria
+
+Es el lugar donde se guardan los datos. Los programas usan espacios en memoria llamados "variables" para usar los datos.
+
 ### Funciones
 
 En programación, las funciones son colecciones de instrucciones en secuencia. Una función recibe datos de entrada y al final siempre devuelve un dato. Existen funciones, llamadas funciones puras, que solo se limitan a convertir los datos de entrada en datos de salida. Más adelante se discutirán a fondo.
@@ -43,7 +47,25 @@ Una función determinista es aquella que siempre calcula el mismo valor dados lo
 >
 > — [Jessica Joy Kerr](https://twitter.com/jessitron/status/333228687208112128)
 
-**TODO: Describir qué es la inmutabilidad.**
+Imagina que se tiene el siguiente código:
+
+```javascript
+const count = 99;
+
+doSomething(count);
+
+console.log(count);
+```
+
+Uno esperaría que el programa escriba `99` en la consola. Sería bastante sorprendente si no, pues el valor `99` siempre será `99`. Imagina vivir en un mundo donde la función `doSomething` pueda tener instrucciones que cambien el valor de `99` por `100` y ese cambio se vea reflejado en `count`. Esta situación es imposible porque `99` es un valor primitivo, no un espacio en memoria. Ahora, imagina el siguiente código:
+
+```javascript
+const array = [1, 2, 3];
+
+doSomething(array);
+
+console.log(array);
+```
 
 Mandar un objeto mutable a un método cualquiera puede llegar a dar miedo porque no siempre se sabrá el valor del objeto después de invocar el método. Una forma fácil pero poco optimizada para evitar esta situación es mandando copias del objeto. Otra forma de evitarla es con el uso de [estructuras de datos inmutables](https://youtu.be/Wo0qiGPSV-s).
 
