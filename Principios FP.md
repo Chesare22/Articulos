@@ -1,20 +1,12 @@
-# Poyectos de POO
-
-Este repositorio tiene como propósito realizar las tareas de la materia "Programación Orientada a Objetos" (POO) pero con uno que otro patrón de programación funcional (FP).
-
-Cada directorio se destina a un proyecto, compuesto del código fuente (carpeta _src_) y una pequeña documentación (archivo _README.md_) con las instrucciones del profesor e instrucciones de cómo compilar y ejecutar el proyecto desde línea de comandos. Igual es posible copiar la carpeta _src_ en tu IDE de preferencia (_NetBeans_, _IntelliJ IDEA_ o _Eclipse_) y ejecutar los proyectos desde ahí. Yo codifico y ejecuto los proyectos en IntelliJ IDEA.
-
 ## Conceptos relacionados a un estilo funcional
 
 Así como la programación orientada a objetos tiene los principios SOLID, la programación funcional tiene sus formas para lograr el desarrollo de código mantenible, robusto, legible, bonito, etc.
-
-Los conceptos de POO deben ser abarcados por el profesor, así que no serán explicados en este documento.
 
 ### Transparencia
 
 Esto quiere decir que una función debe recibir todos sus datos de entrada mediante parámetros. En otras palabras, se evita el uso de `this`. En realidad esto no es ninguna limitante, pues cualquier método puede ser visto como una función que además de recibir datos de forma explícita, mediante parámetros, recibe datos de forma implícita debido al `this`. A mí me funciona ser explícito al describir mis ideas.
 
-Quizá te preguntes _¿cómo puedo llamar a otros métodos sin el uso de `this`?_, y la respuesta es que puedes pasar el método como parámetro. En programación funcional, las funciones también son valores. Las funciones que reciben o devuelven otras funciones se conocen como [funciones de orden superior](https://eloquentjavascript.net/05_higher_order.html). Java facilita este patrón con el [operador `::`](https://www.geeksforgeeks.org/double-colon-operator-in-java/) y las [interfaces funcionales](https://www.educative.io/edpresso/a-list-of-all-the-functional-interfaces-in-java).
+Quizá te preguntes _¿cómo puedo llamar a otros métodos sin el uso de `this`?_, y la respuesta es que puedes pasar el método como parámetro. En programación funcional, las funciones también son valores. Las funciones que reciben o devuelven otras funciones se conocen como [funciones de orden superior](https://eloquentjavascript.net/05_higher_order.html).
 
 Para algunos la sintaxis tiene mucha importancia. Al inicio ser explícito es verboso, pero patrones como [aplicación parcial](https://github.com/getify/Functional-Light-JS/blob/master/manuscript/ch3.md/#some-now-some-later), [_point-free style_](https://github.com/getify/Functional-Light-JS/blob/master/manuscript/ch3.md/#no-points) y [composición de funciones](https://youtu.be/srQt1NAHYC0?t=563) ayudan a mitigar esto. Existen lenguajes de programación como Elixir o Elm [cuya sintaxis facilita estos patrones](https://dennisreimann.de/articles/elm-functions.html).
 
@@ -67,7 +59,7 @@ Integer[] arrayB = listB.toArray(new Integer[listB.size()]);
 // ...
 ```
 
-Una forma declarativa de solucionar este problema es llamando a una función que filtre todos los valores de acuerdo al criterio "el valor no debe ser nulo". En java podemos usar [Stream.filter](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/Stream.html).
+Una forma declarativa de solucionar este problema es llamando a una función que filtre todos los valores de acuerdo al criterio "el valor no debe ser nulo".
 
 ```java
 Integer[] arrayA = new Integer[] { 1, 2, null, 3, null, 4, 5 };
