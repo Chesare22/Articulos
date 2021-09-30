@@ -41,35 +41,37 @@ Recomiendo ver la plática [Functional architecture - The pits of success — Ma
 
 En lugar de escribir los pasos para llegar a un resultado, en un [paradigma declarativo](https://www.ionos.mx/digitalguide/paginas-web/desarrollo-web/programacion-declarativa/) se escribe qué resultado se desea.
 
-Por ejemplo: se tiene un arreglo de números enteros **_arrayA_** y en una parte de un sistema se desean usar todos sus valores que no sean nulos. Una solución es crear un nuevo arreglo **_arrayB_** con todos los valores no-nulos de **_arrayA_**. En la forma imperativa tendríamos que crear una lista, guardar los elementos no-nulos en esa lista y luego convertirla a un arreglo.
+Por ejemplo: se tiene un arreglo de números enteros **_arrayA_** y en una parte de un sistema se desean usar todos sus elementos que no sean nulos. Una solución es crear un nuevo arreglo **_arrayB_** con todos los elementos no-nulos de **_arrayA_**. En una implementación imperativa seguimos los siguientes pasos:
 
-```java
-Integer[] arrayA = new Integer[] { 1, 2, null, 3, null, 4, 5 };
+1. Crear un nuevo arreglo.
+1. Ciclar sobre el arreglo original. Dentro del ciclo preguntamos si un elemento no es nulo. Si la condición anterior se cumple, agregamos el elemento en cuestión al nuevo arreglo.
 
-List<Integer> listB = new ArrayList<>();
-for (Integer obj : arrayA) {
-    if (Objects.nonNull(obj)) {
-        listB.add(obj);
-    }
+```javascript
+const arrayA = [1, 2, null, 3, null, 4, 5];
+
+const arrayB = [];
+for (let i = 0; i < arrayA.length; i++) {
+  if (arrayA[i] !== null) {
+    arrayB.push(arrayA[i]);
+  }
 }
 
-Integer[] arrayB = listB.toArray(new Integer[listB.size()]);
-
-// Hacer algo con B
+// Hacer algo con arrayB
 // ...
 ```
 
-Una forma declarativa de solucionar este problema es llamando a una función que filtre todos los valores de acuerdo al criterio "el valor no debe ser nulo".
+Una implementación declarativa puede ser llamar a una función que filtre todos los elementos de acuerdo al criterio "el valor no debe ser nulo".
 
-```java
-Integer[] arrayA = new Integer[] { 1, 2, null, 3, null, 4, 5 };
+```javascript
+function isNotNull(value) {
+  return value !== null;
+}
 
+const arrayA = [1, 2, null, 3, null, 4, 5];
 
-Integer[] arrayB = Arrays.stream(arrayA)
-            .filter(Objects::nonNull)
-            .toArray(Integer[]::new);
+const arrayB = arrayA.filter(isNotNull);
 
-// Hacer algo con B
+// Hacer algo con arrayB
 // ...
 ```
 
